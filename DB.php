@@ -4,7 +4,7 @@ class DB {
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';
-    private $dbname = 'root';
+    private $dbname = 'clientes';
     private $pdo;
 
     public function __construct($host=null, $user=null, $pass=null, $dbname=null){

@@ -4,7 +4,7 @@ class Controlador {
     private $vista;
     private $db;
     public function __construct() {
-        require '../DB.php';
+        require 'DB.php';
         $this->db = new DB();
     }
 }
