@@ -6,6 +6,7 @@ class vistaLogin extends vista {
     public function loginForm() {
         echo 
         '<h1>Iniciar Sesión</h1>' .
+        '<div id="ajax"></div>' .
         '<form id="login" method="POST" action="login.php">' .
             '<div><label>Usuario</label></div>' . 
             '<div><input type="text" name="usuario"></div>' . 

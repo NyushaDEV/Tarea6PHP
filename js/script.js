@@ -3,7 +3,6 @@
 $(function() {
 
     login();
-
 });
 
 function login() {
@@ -16,7 +15,8 @@ function login() {
             data: $('#login').serialize()
         })
         .done(function(data){
-            console.log(data);
+            let json = JSON.parse(data);
+            $('#ajax').html(json['mensaje']);
         })
         .fail(function(data, status, error){
             console.log(status);
