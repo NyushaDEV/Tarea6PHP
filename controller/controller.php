@@ -4,12 +4,17 @@ class Controlador {
     private $vistaLogin;
     private $vista;
     private $db;
-    public function __construct() {
-        require 'DB.php';
-        $this->db = new DB();
+    private $userModel;
 
-        require 'views/vista.php';
-        require 'views/vistaLogin.php';
+    public function __construct() {
+        session_start();
+        require_once 'DB.php';
+        require_once 'model/usuarios.php';
+        $this->db = new DB();
+        $this->userModel = new userModel();
+
+        require_once 'views/vista.php';
+        require_once 'views/vistaLogin.php';
         $this->vista = new vista();
         $this->vistaLogin = new vistaLogin();
         
@@ -41,6 +46,12 @@ class Controlador {
             if(empty($usuario) || empty($pass)) {
                 $json['mensaje'] = 'Los campos usuario o contraseña están vacios';
             } else {
+                if($this->userModel->comprobar($usuario, $pass)) {
+                    $_SESSION['usuario'] = $usuario;
+                    $_SESSION['pass'] = $pass;
+                } else {
+                    $json['mensaje'] = 'Usuario o contraseña incorrecto';
+                }
             }
 
             echo json_encode($json);

@@ -23,5 +23,11 @@ class DB {
         }
 
     }
+
+    public function consulta($sql, $datos=[]) {
+        $consulta = $this->pdo->prepare($sql);
+        $consulta->execute($datos);
+        var_dump($consulta->fetchAll(PDO::FETCH_OBJ));
+    }
     
 }
