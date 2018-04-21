@@ -18,6 +18,7 @@ class Controlador {
         $this->vista = new vista();
         $this->vistaLogin = new vistaLogin();
         
+
         
         // Vistas
             $this->vista->start();
@@ -28,6 +29,8 @@ class Controlador {
         if(isset($_GET['login'])) {
             $this->login();
         }
+
+        
         
     }
 

@@ -16,7 +16,10 @@ class vista {
     }
 
     public function end() {
-        echo '</body>
+        echo '
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/script.js"></script>
+        </body>
         </html>';
     }
 }
